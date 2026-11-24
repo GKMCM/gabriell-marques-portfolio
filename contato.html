@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+  Currículo Online — Gabriell Marques
+  Página: Contato (formulário com nome, e-mail e mensagem)
+  A validação e a simulação do envio estão em js/script.js
+  (função configurarFormularioContato).
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Entre em contato com Gabriell Marques pelo formulário.">
+  <meta name="author" content="Gabriell Marques">
+  <title>Contato | Gabriell Marques</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== CABEÇALHO E MENU (igual em todas as páginas) ===================== -->
+  <header class="topo" id="topo">
+    <div class="container topo__interno">
+      <a class="marca" href="index.html" aria-label="Gabriell Marques, página inicial">
+        <span class="marca__monograma" aria-hidden="true">GM</span>
+        <span class="marca__nome">Gabriell Marques</span>
+      </a>
+
+      <button class="menu-botao" id="menu-botao" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+      </button>
+
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html">Sobre mim</a></li>
+          <li><a class="menu__link" href="formacao.html">Formação</a></li>
+          <li><a class="menu__link" href="portfolio.html">Portfólio</a></li>
+          <li><a class="menu__link" href="contato.html" aria-current="page">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="tema-botao" id="tema-botao" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== CABEÇALHO DA PÁGINA ===================== -->
+    <section class="cabecalho-pagina" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="rotulo">04 — Contato</p>
+        <h1 id="titulo-pagina">Vamos conversar?</h1>
+        <p>Use o formulário abaixo para me enviar uma mensagem. Todos os campos são obrigatórios.</p>
+      </div>
+    </section>
+
+    <section class="secao" aria-label="Formulário de contato">
+      <div class="container contato">
+        <!-- ===================== FORMULÁRIO ===================== -->
+        <div class="cartao">
+          <h2>Enviar mensagem</h2>
+          <!--
+            novalidate desliga os balões de validação do navegador:
+            quem valida é o nosso JavaScript, com mensagens em português
+            exibidas embaixo de cada campo.
+          -->
+          <form class="formulario" id="form-contato" action="#" method="post" novalidate>
+            <div class="campo">
+              <label for="nome">Nome <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="text" id="nome" name="nome" autocomplete="name" placeholder="Seu nome completo" maxlength="80" required aria-describedby="erro-nome">
+              <!-- O texto do erro é inserido pelo JavaScript; aria-live faz o leitor de tela anunciá-lo -->
+              <p class="campo__erro" id="erro-nome" aria-live="polite"></p>
+            </div>
+
+            <div class="campo">
+              <label for="email">E-mail <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="usuario@dominio.com" maxlength="120" required aria-describedby="erro-email">
+              <p class="campo__erro" id="erro-email" aria-live="polite"></p>
+            </div>
+
+            <div class="campo">
+              <label for="mensagem">Mensagem <span class="obrigatorio" aria-hidden="true">*</span></label>
+              <textarea id="mensagem" name="mensagem" rows="6" placeholder="Escreva aqui a sua mensagem" maxlength="1000" required aria-describedby="erro-mensagem contador-mensagem"></textarea>
+              <div class="campo__rodape">
+                <p class="campo__erro" id="erro-mensagem" aria-live="polite"></p>
+                <!-- Contador de caracteres atualizado a cada tecla -->
+                <p class="campo__contador" id="contador-mensagem">0 / 1000</p>
+              </div>
+            </div>
+
+            <!-- Resumo dos erros: fica escondido (hidden) até uma tentativa de envio falhar -->
+            <p class="formulario__status" id="form-status" role="alert" hidden></p>
+
+            <div class="formulario__acoes">
+              <button class="botao botao--primario" id="botao-enviar" type="submit">Enviar mensagem</button>
+              <p class="formulario__nota">Envio simulado: nenhuma informação sai do seu navegador.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== MODAL DE CONFIRMAÇÃO =====================
+       <dialog> é um elemento do HTML5 para caixas de diálogo.
+       O JavaScript abre com showModal() depois do envio simulado. -->
+  <dialog class="modal" id="modal-sucesso" aria-labelledby="modal-titulo" aria-describedby="modal-texto">
+    <div class="modal__conteudo">
+      <span class="modal__icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 6 9 17l-5-5"></path>
+        </svg>
+      </span>
+      <h2 id="modal-titulo">Mensagem enviada com sucesso!</h2>
+      <p id="modal-texto">Obrigado pelo contato. Os campos do formulário foram limpos.</p>
+      <button class="botao botao--primario" id="modal-fechar" type="button">Fechar</button>
+    </div>
+  </dialog>
+
+  <!-- ===================== RODAPÉ (igual em todas as páginas) ===================== -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <p>&copy; <span id="ano-atual">2026</span> Gabriell Marques · Feito com HTML5, CSS3 e JavaScript puro.</p>
+      <ul class="rodape__links">
+        <li><a href="https://github.com/GKMCM/gabriell-marques-portfolio">Código-fonte no GitHub</a></li>
+        <li><a href="#topo">Voltar ao topo</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!--
+  Currículo Online — Gabriell Marques
+  Página: Portfólio (trabalhos já realizados, com links)
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Gabriell Marques: trabalhos realizados, com links para o código-fonte.">
+  <meta name="author" content="Gabriell Marques">
+  <title>Portfólio | Gabriell Marques</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== CABEÇALHO E MENU (igual em todas as páginas) ===================== -->
+  <header class="topo" id="topo">
+    <div class="container topo__interno">
+      <a class="marca" href="index.html" aria-label="Gabriell Marques, página inicial">
+        <span class="marca__monograma" aria-hidden="true">GM</span>
+        <span class="marca__nome">Gabriell Marques</span>
+      </a>
+
+      <button class="menu-botao" id="menu-botao" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+      </button>
+
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html">Sobre mim</a></li>
+          <li><a class="menu__link" href="formacao.html">Formação</a></li>
+          <li><a class="menu__link" href="portfolio.html" aria-current="page">Portfólio</a></li>
+          <li><a class="menu__link" href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="tema-botao" id="tema-botao" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== CABEÇALHO DA PÁGINA ===================== -->
+    <section class="cabecalho-pagina" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="rotulo">03 — Portfólio</p>
+        <h1 id="titulo-pagina">Portfólio</h1>
+        <p>Trabalhos que já realizei, com links para o código-fonte e, quando houver, para a versão on-line.</p>
+      </div>
+    </section>
+
+    <!-- ===================== LISTA DE PROJETOS ===================== -->
+    <section class="secao" aria-labelledby="titulo-projetos">
+      <div class="container">
+        <h2 id="titulo-projetos" class="rotulo">Trabalhos realizados</h2>
+        <p class="texto-suave portfolio__nota">Parte dos meus projetos profissionais é confidencial e não aparece aqui.</p>
+
+        <!--
+          COMO ADICIONAR UM PROJETO: copie um <article class="projeto"> inteiro e troque:
+            - a capa (as iniciais do projeto ou uma <img> com alt descritivo);
+            - o título, a descrição e as etiquetas de tecnologia;
+            - os links: <a class="botao botao--primario" href="https://github.com/...">Ver código</a>
+          Links externos abrem em nova aba com target="_blank" rel="noopener".
+        -->
+        <div class="grade grade--3">
+          <article class="projeto">
+            <figure class="projeto__capa" aria-hidden="true">01</figure>
+            <div class="projeto__corpo">
+              <h3>Currículo online</h3>
+              <p>Este site: currículo responsivo de 4 páginas feito com HTML5, CSS3 e JavaScript puro, com tema claro/escuro, menu para celular e formulário de contato com validação.</p>
+              <ul class="etiquetas" aria-label="Tecnologias usadas">
+                <li class="etiqueta">HTML5</li>
+                <li class="etiqueta">CSS3</li>
+                <li class="etiqueta">JavaScript</li>
+              </ul>
+              <div class="projeto__links">
+                <a class="botao botao--primario" href="https://github.com/GKMCM/gabriell-marques-portfolio" target="_blank" rel="noopener">Ver código</a>
+                <a class="botao botao--secundario" href="https://gkmcm.github.io/gabriell-marques-portfolio/" target="_blank" rel="noopener">Ver on-line</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projeto">
+            <figure class="projeto__capa" aria-hidden="true">02</figure>
+            <div class="projeto__corpo">
+              <h3>Cofrinho de moedas</h3>
+              <p>Sistema de console em Java que simula um cofrinho: adicionar e remover moedas de Real, Dólar e Euro, listar o conteúdo e calcular o total convertido para Real. Exercício de herança e polimorfismo com a classe abstrata Moeda.</p>
+              <ul class="etiquetas" aria-label="Tecnologias usadas">
+                <li class="etiqueta">Java</li>
+                <li class="etiqueta">POO</li>
+              </ul>
+              <div class="projeto__links">
+                <a class="botao botao--primario" href="https://github.com/GKMCM/cofrinho-java" target="_blank" rel="noopener">Ver código</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="projeto">
+            <figure class="projeto__capa" aria-hidden="true">03</figure>
+            <div class="projeto__corpo">
+              <h3>Caçador de Cristais</h3>
+              <p>Demo de jogo 2D em Python com Pygame: o jogador coleta 12 cristais numa arena enquanto foge de dois tipos de inimigos, com níveis de dificuldade e um pulso de energia com recarga.</p>
+              <ul class="etiquetas" aria-label="Tecnologias usadas">
+                <li class="etiqueta">Python</li>
+                <li class="etiqueta">Pygame</li>
+              </ul>
+              <div class="projeto__links">
+                <a class="botao botao--primario" href="https://github.com/GKMCM/cacador-de-cristais" target="_blank" rel="noopener">Ver código</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--alternada" aria-label="Próximos passos">
+      <div class="container">
+        <div class="chamada-final">
+          <h2>Gostou de algum trabalho? Fale comigo.</h2>
+          <a class="botao botao--secundario" href="contato.html">Ir para o contato</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ (igual em todas as páginas) ===================== -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <p>&copy; <span id="ano-atual">2026</span> Gabriell Marques · Feito com HTML5, CSS3 e JavaScript puro.</p>
+      <ul class="rodape__links">
+        <li><a href="https://github.com/GKMCM/gabriell-marques-portfolio">Código-fonte no GitHub</a></li>
+        <li><a href="#topo">Voltar ao topo</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

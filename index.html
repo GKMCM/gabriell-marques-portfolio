@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--
+  ============================================================================
+  Currículo Online — Gabriell Marques
+  Página: Sobre mim (index.html — é a página inicial do site)
+
+  Estrutura do site (modelo de páginas separadas):
+    index.html     -> Sobre mim
+    formacao.html  -> Formação
+    portfolio.html -> Portfólio
+    contato.html   -> Contato (formulário com validação em JavaScript)
+    css/estilo.css -> estilos de todas as páginas
+    js/script.js   -> comportamento de todas as páginas
+  ============================================================================
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- viewport: faz o site se adaptar à largura da tela do celular -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Currículo online de Gabriell Marques, estudante de Engenharia de Software no Centro Universitário Internacional UNINTER.">
+  <meta name="author" content="Gabriell Marques">
+  <title>Sobre mim | Gabriell Marques</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+  <!-- Sem "defer": aplica o tema salvo antes de desenhar a página (ver comentário no script) -->
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <!-- Atalho para quem navega pelo teclado pular direto o menu -->
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== CABEÇALHO E MENU (igual em todas as páginas) ===================== -->
+  <header class="topo" id="topo">
+    <div class="container topo__interno">
+      <a class="marca" href="index.html" aria-label="Gabriell Marques, página inicial">
+        <span class="marca__monograma" aria-hidden="true">GM</span>
+        <span class="marca__nome">Gabriell Marques</span>
+      </a>
+
+      <!-- Botão do menu no celular: o JavaScript abre/fecha o menu e atualiza aria-expanded -->
+      <button class="menu-botao" id="menu-botao" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+      </button>
+
+      <!-- Menu principal com os 4 links obrigatórios; aria-current marca a página atual -->
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html" aria-current="page">Sobre mim</a></li>
+          <li><a class="menu__link" href="formacao.html">Formação</a></li>
+          <li><a class="menu__link" href="portfolio.html">Portfólio</a></li>
+          <li><a class="menu__link" href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <!-- Alterna entre tema claro e escuro (o ícone exibido depende do tema atual) -->
+      <button class="tema-botao" id="tema-botao" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== ABERTURA (HERO) ===================== -->
+    <section class="hero" aria-labelledby="titulo-pagina">
+      <div class="container hero__interno">
+        <div class="hero__texto">
+          <p class="rotulo">01 — Sobre mim</p>
+          <h1 id="titulo-pagina">Olá, eu sou <span class="destaque">Gabriell Marques</span>.</h1>
+          <p class="hero__subtitulo">Estudante de Engenharia de Software no Centro Universitário Internacional UNINTER.</p>
+          <!-- CONTEÚDO: frase curta de apresentação (texto do próprio autor) -->
+          <p class="hero__chamada">Sou estudante de Engenharia de Software e gosto de entender como os sistemas funcionam por dentro. Busco crescer como desenvolvedor e construir software útil e bem feito.</p>
+          <div class="hero__acoes">
+            <a class="botao botao--primario" href="portfolio.html">Ver portfólio</a>
+            <a class="botao botao--secundario" href="contato.html">Entrar em contato</a>
+          </div>
+        </div>
+
+        <figure class="hero__lateral">
+          <!-- Foto dentro do contêiner .avatar: assim a moldura (pseudoelemento ::after) continua aparecendo -->
+          <div class="avatar avatar--foto">
+            <img src="img/foto-gabriell.jpg" alt="Foto de Gabriell Marques" width="240" height="240">
+          </div>
+
+          <!-- Barra de progresso do curso: a largura vem da variável CSS --progresso -->
+          <figcaption class="progresso">
+            <span class="progresso__topo">
+              <span>Engenharia de Software</span>
+              <span class="progresso__valor">38%</span>
+            </span>
+            <span class="progresso__trilho" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-label="Progresso no curso">
+              <span class="progresso__barra" style="--progresso: 38%;"></span>
+            </span>
+            <span class="progresso__legenda">Cerca de 38% do curso concluído (início em 2022)</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== APRESENTAÇÃO E INFORMAÇÕES PESSOAIS ===================== -->
+    <section class="secao" aria-labelledby="titulo-apresentacao">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <p class="rotulo">Apresentação</p>
+          <h2 id="titulo-apresentacao">Quem sou eu</h2>
+        </header>
+
+        <div class="grade grade--2">
+          <!-- Cartão: texto de apresentação -->
+          <article class="cartao">
+            <h3><span class="cartao__icone" aria-hidden="true">01</span> Minha trajetória</h3>
+            <p>Sou estudante do Bacharelado em Engenharia de Software, na modalidade a distância (EaD), no Centro Universitário Internacional UNINTER. Comecei o curso em 2022 e já concluí cerca de 38% da grade.</p>
+            <p>Escolhi a Engenharia de Software porque sempre gostei de tecnologia e de resolver problemas com lógica. Meu objetivo é atuar como desenvolvedor de software e continuar aprendendo sobre arquitetura e qualidade de código.</p>
+          </article>
+
+          <!-- Cartão: informações pessoais em lista de definição (dl/dt/dd) -->
+          <article class="cartao">
+            <h3><span class="cartao__icone" aria-hidden="true">02</span> Informações pessoais</h3>
+            <dl class="dados">
+              <dt>Nome</dt>
+              <dd>Gabriell Marques</dd>
+              <dt>Curso</dt>
+              <dd>Bacharelado em Engenharia de Software (EaD)</dd>
+              <dt>Instituição</dt>
+              <dd>Centro Universitário Internacional UNINTER</dd>
+              <dt>Cidade</dt>
+              <dd>Passos – MG</dd>
+              <dt>Interesses</dt>
+              <dd>Back-end e APIs, desenvolvimento web, banco de dados e desenvolvimento de jogos</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== HOBBIES E TECNOLOGIAS ===================== -->
+    <section class="secao secao--alternada" aria-labelledby="titulo-hobbies">
+      <div class="container">
+        <div class="grade grade--2">
+          <article class="cartao">
+            <h3 id="titulo-hobbies"><span class="cartao__icone" aria-hidden="true">03</span> Hobbies</h3>
+            <ul class="lista-marcada">
+              <li>Jogos (videogames)</li>
+              <li>Música</li>
+              <li>Leitura</li>
+            </ul>
+          </article>
+
+          <article class="cartao">
+            <h3><span class="cartao__icone" aria-hidden="true">04</span> Tecnologias que estudei no curso</h3>
+            <p class="texto-suave">Linguagens e ferramentas trabalhadas nas disciplinas da graduação.</p>
+            <ul class="etiquetas">
+              <li class="etiqueta">Java</li>
+              <li class="etiqueta">Python</li>
+              <li class="etiqueta">C# / .NET</li>
+              <li class="etiqueta">HTML5</li>
+              <li class="etiqueta">CSS3</li>
+              <li class="etiqueta">JavaScript</li>
+              <li class="etiqueta">Spring Boot</li>
+              <li class="etiqueta">Bancos NoSQL</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CHAMADA PARA AS OUTRAS PÁGINAS ===================== -->
+    <section class="secao" aria-label="Próximos passos">
+      <div class="container">
+        <div class="chamada-final">
+          <h2>Quer saber mais sobre a minha formação?</h2>
+          <a class="botao botao--secundario" href="formacao.html">Ver formação</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ (igual em todas as páginas) ===================== -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <!-- O ano é atualizado pelo JavaScript (função atualizarAnoRodape) -->
+      <p>&copy; <span id="ano-atual">2026</span> Gabriell Marques · Feito com HTML5, CSS3 e JavaScript puro.</p>
+      <ul class="rodape__links">
+        <li><a href="https://github.com/GKMCM/gabriell-marques-portfolio">Código-fonte no GitHub</a></li>
+        <li><a href="#topo">Voltar ao topo</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>

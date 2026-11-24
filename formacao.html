@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!--
+  Currículo Online — Gabriell Marques
+  Página: Formação (formação acadêmica, disciplinas, cursos e idiomas)
+-->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formação de Gabriell Marques: Bacharelado em Engenharia de Software no Centro Universitário Internacional UNINTER, disciplinas cursadas, cursos e idiomas.">
+  <meta name="author" content="Gabriell Marques">
+  <title>Formação | Gabriell Marques</title>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/estilo.css">
+  <script src="js/script.js"></script>
+</head>
+<body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== CABEÇALHO E MENU (igual em todas as páginas) ===================== -->
+  <header class="topo" id="topo">
+    <div class="container topo__interno">
+      <a class="marca" href="index.html" aria-label="Gabriell Marques, página inicial">
+        <span class="marca__monograma" aria-hidden="true">GM</span>
+        <span class="marca__nome">Gabriell Marques</span>
+      </a>
+
+      <button class="menu-botao" id="menu-botao" type="button" aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menu">
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+        <span class="menu-botao__linha"></span>
+      </button>
+
+      <nav class="menu" id="menu-principal" aria-label="Menu principal">
+        <ul class="menu__lista">
+          <li><a class="menu__link" href="index.html">Sobre mim</a></li>
+          <li><a class="menu__link" href="formacao.html" aria-current="page">Formação</a></li>
+          <li><a class="menu__link" href="portfolio.html">Portfólio</a></li>
+          <li><a class="menu__link" href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <button class="tema-botao" id="tema-botao" type="button" aria-label="Alternar tema claro/escuro">
+        <svg class="icone-lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+        </svg>
+        <svg class="icone-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== CABEÇALHO DA PÁGINA ===================== -->
+    <section class="cabecalho-pagina" aria-labelledby="titulo-pagina">
+      <div class="container">
+        <p class="rotulo">02 — Formação</p>
+        <h1 id="titulo-pagina">Formação</h1>
+        <p>Formação acadêmica, disciplinas cursadas, disciplinas em curso e idiomas.</p>
+      </div>
+    </section>
+
+    <!-- ===================== FORMAÇÃO EDUCACIONAL (linha do tempo) ===================== -->
+    <section class="secao" aria-labelledby="titulo-academica">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <p class="rotulo">Formação educacional</p>
+          <h2 id="titulo-academica">Trajetória acadêmica</h2>
+        </header>
+
+        <!-- Lista ordenada: a ordem (mais recente primeiro) faz parte do conteúdo -->
+        <ol class="linha-tempo">
+          <li class="linha-tempo__item linha-tempo__item--atual">
+            <article class="cartao">
+              <span class="linha-tempo__periodo">2022 — em andamento</span>
+              <h3>Bacharelado em Engenharia de Software (EaD)</h3>
+              <p class="linha-tempo__instituicao">Centro Universitário Internacional UNINTER</p>
+              <div class="progresso">
+                <span class="progresso__topo">
+                  <span>Progresso no curso</span>
+                  <span class="progresso__valor">38%</span>
+                </span>
+                <span class="progresso__trilho" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="38" aria-label="Progresso no curso">
+                  <span class="progresso__barra" style="--progresso: 38%;"></span>
+                </span>
+              </div>
+            </article>
+          </li>
+
+          <!-- Formação anterior -->
+          <li class="linha-tempo__item">
+            <article class="cartao">
+              <span class="linha-tempo__periodo">Concluído</span>
+              <h3>Ensino Médio</h3>
+            </article>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== DISCIPLINAS (com filtro em JavaScript) ===================== -->
+    <section class="secao secao--alternada" aria-labelledby="titulo-disciplinas">
+      <div class="container">
+        <header class="secao__cabecalho">
+          <p class="rotulo">Na graduação</p>
+          <h2 id="titulo-disciplinas">Disciplinas cursadas</h2>
+          <p>Algumas das disciplinas que já cursei ou estou cursando na graduação. Use os filtros para ver cada área.</p>
+        </header>
+
+        <!-- Cada botão tem um data-area; o script esconde as disciplinas de outras áreas -->
+        <div class="filtros" role="group" aria-label="Filtrar disciplinas por área">
+          <button class="filtro__botao" type="button" data-area="todas" aria-pressed="true">Todas</button>
+          <button class="filtro__botao" type="button" data-area="programacao" aria-pressed="false">Programação</button>
+          <button class="filtro__botao" type="button" data-area="engenharia" aria-pressed="false">Engenharia de Software</button>
+          <button class="filtro__botao" type="button" data-area="infra-dados" aria-pressed="false">Infraestrutura e dados</button>
+          <button class="filtro__botao" type="button" data-area="web" aria-pressed="false">Desenvolvimento web</button>
+        </div>
+        <!-- aria-live: leitores de tela anunciam a nova contagem após filtrar -->
+        <p class="filtros__contagem" id="filtro-contagem" aria-live="polite"></p>
+
+        <ul class="disciplinas">
+          <li class="disciplina" data-area="programacao">Programação I (C# / .NET) <span class="etiqueta">Programação</span></li>
+          <li class="disciplina" data-area="programacao">Programação Orientada a Objetos (Java) <span class="etiqueta">Programação</span></li>
+          <li class="disciplina" data-area="programacao">Linguagem de Programação (Python) <span class="etiqueta">Programação</span></li>
+          <li class="disciplina" data-area="programacao">Programação II <span class="etiqueta">Programação</span></li>
+          <li class="disciplina" data-area="programacao">Programação III <span class="etiqueta">Programação</span></li>
+          <li class="disciplina" data-area="engenharia">Engenharia de Requisitos <span class="etiqueta">Engenharia de Software</span></li>
+          <li class="disciplina" data-area="engenharia">Fundamentos de Desenvolvimento de Softwares <span class="etiqueta">Engenharia de Software</span></li>
+          <li class="disciplina" data-area="engenharia">Fundamentos de Design de Sistemas <span class="etiqueta">Engenharia de Software</span></li>
+          <li class="disciplina" data-area="infra-dados">Fundamentos de Infraestrutura da Tecnologia da Informação <span class="etiqueta">Infraestrutura e dados</span></li>
+          <li class="disciplina" data-area="infra-dados">Banco de Dados NoSQL <span class="etiqueta">Infraestrutura e dados</span></li>
+          <li class="disciplina" data-area="infra-dados">Segurança de Sistemas de Informação <span class="etiqueta">Infraestrutura e dados</span></li>
+          <li class="disciplina" data-area="web">Aplicações Web e Móveis <span class="etiqueta">Desenvolvimento web</span></li>
+          <li class="disciplina" data-area="web">Desenvolvimento Web – Back End <span class="etiqueta">Desenvolvimento web</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CURSOS COMPLEMENTARES E IDIOMAS ===================== -->
+    <section class="secao" aria-label="Disciplinas em curso e idiomas">
+      <div class="container">
+        <div class="grade grade--2">
+          <article class="cartao" aria-labelledby="titulo-em-curso">
+            <h3 id="titulo-em-curso"><span class="cartao__icone" aria-hidden="true">01</span> Disciplinas em curso</h3>
+            <p class="texto-suave">Disciplinas que estou cursando no 2º semestre de 2026.</p>
+            <ul class="lista-marcada">
+              <li>Aplicações Web e Móveis</li>
+              <li>Banco de Dados NoSQL</li>
+              <li>Desenvolvimento Web – Back End</li>
+              <li>Ética Empresarial e Responsabilidade Socioambiental</li>
+              <li>Programação II</li>
+              <li>Programação III</li>
+              <li>Segurança de Sistemas de Informação</li>
+            </ul>
+          </article>
+
+          <article class="cartao" aria-labelledby="titulo-idiomas">
+            <h3 id="titulo-idiomas"><span class="cartao__icone" aria-hidden="true">02</span> Idiomas</h3>
+            <!-- Tabela simples: idioma x nível -->
+            <table class="tabela">
+              <thead>
+                <tr>
+                  <th scope="col">Idioma</th>
+                  <th scope="col">Nível</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Português</td>
+                  <td>Nativo</td>
+                </tr>
+                <tr>
+                  <td>Inglês</td>
+                  <td>Nativo</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao secao--alternada" aria-label="Próximos passos">
+      <div class="container">
+        <div class="chamada-final">
+          <h2>Veja os trabalhos que já realizei.</h2>
+          <a class="botao botao--secundario" href="portfolio.html">Ver portfólio</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== RODAPÉ (igual em todas as páginas) ===================== -->
+  <footer class="rodape">
+    <div class="container rodape__interno">
+      <p>&copy; <span id="ano-atual">2026</span> Gabriell Marques · Feito com HTML5, CSS3 e JavaScript puro.</p>
+      <ul class="rodape__links">
+        <li><a href="https://github.com/GKMCM/gabriell-marques-portfolio">Código-fonte no GitHub</a></li>
+        <li><a href="#topo">Voltar ao topo</a></li>
+      </ul>
+    </div>
+  </footer>
+</body>
+</html>
